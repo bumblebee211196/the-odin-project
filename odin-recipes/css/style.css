@@ -1,0 +1,81 @@
+body {
+  background-color: azure;
+}
+
+.title, .description, .ingredients, .procedure {
+  background-color: antiquewhite;
+  font-size: 50px;
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.description {
+  font-size: 36px;
+}
+
+.description.text {
+  background-color: beige;
+  font-size: 32px;
+}
+
+.ingredients {
+  font-size: 36px;
+}
+
+.ingredients.text {
+  background-color: beige;
+  text-align: left;
+  font-size: 32px;
+}
+
+.procedure {
+  font-size: 36px;
+}
+
+.procedure.text {
+  background-color: beige;
+  text-align: left;
+  font-size: 32px;
+}
+
+.slogan {
+  color: blue;
+  font-size: 24px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: italic;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.image {
+  border: 5px solid black;
+  display: block;
+  margin: 25px auto 25px;
+  height: auto;
+  width: auto;
+}
+
+.contents {
+  background-color: antiquewhite;
+  font-size: 32px;
+  border: 5px solid black;
+  border-radius: 20px;
+  margin: 20px 600px 20px 600px;
+  text-align: center;
+}
+
+.footer {
+  font-size: 30px;
+  text-align: center;
+}
+
+a:hover {
+  color: crimson;
+}
+
+a:visited {
+  color: royalblue;
+}
