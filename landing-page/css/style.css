@@ -1,0 +1,168 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 32px;
+}
+
+button {
+  border-radius: 4px;
+
+  background-color: #3882f6;
+  color: white;
+  padding: 8px 24px;
+}
+
+button:hover {
+  background-color: #0c4aad;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: rgb(235, 189, 103);
+}
+
+.header img {
+  height: 60%;
+  width: 60%;
+}
+
+.header ul {
+  color: #1a1563;
+  font-size: 18px;
+  margin: 0;
+}
+
+.header li {
+  display: inline-block;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.header li:hover {
+  background-color: rgb(184, 124, 12);
+}
+
+.header li a {
+  color: black;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+
+  background-color: wheat;
+  padding: 0 100px;
+}
+
+.main .title {
+  color: #1a1563;
+  font-size: 48px;
+  font-weight: bolder;
+  width: 750px;
+}
+
+.main img {
+  width: 40%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 32px 64px;
+}
+
+.content .title {
+  font-size: 36px;
+  font-weight: bolder;
+  
+  color: #1f2937;
+}
+
+.content .cards {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .card {
+  width: 350px;
+  height: 450px;
+}
+
+.content img {
+  border: 18px groove goldenrod;
+  border-radius: 50%;
+}
+
+.quote {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #e5e7eb;
+  padding: 0 275px;
+}
+
+.quote .text {
+  font-size: 36px;
+  font-weight: lighter;
+  font-style: italic;
+  color: #1f2937;
+}
+
+.quote .author {
+  font-size: 24px;
+  font-weight: bolder;
+  align-self: flex-end;
+}
+
+.signup {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  font-size: 24px;
+
+  background-color: #3882f6;
+  color: white;
+  margin: 48px 250px;
+  padding: 16px 150px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(235, 189, 103);
+  color: black;
+  padding: 16px 16px;
+}
