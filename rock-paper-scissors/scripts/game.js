@@ -3,6 +3,7 @@ const CHARMANDER = "Charmander";
 const SQUIRTLE = "Squirtle";
 const ELEMENTS = [BULBASAUR, CHARMANDER , SQUIRTLE]
 const ROUNDS = 5;
+const BATTLE = "battle";
 
 let playerScore = 0;
 let computerScore = 0;
@@ -40,20 +41,22 @@ function game(player) {
   document.getElementById("playerScore").innerHTML = playerScore;
   document.getElementById("computerScore").innerHTML = computerScore;
   if (playerScore == ROUNDS) {
-    document.getElementById("message2").innerHTML = "You won the battle!.";
+    document.getElementById("message2").innerHTML = "Player wins the battle!.";
     playerScore = computerScore = 0;
-    resetGame();
+    resetGame(BATTLE);
   } else if (computerScore == ROUNDS) {
-    document.getElementById("message2").innerHTML = "You lost the battle!.";
+    document.getElementById("message2").innerHTML = "Computer wins the battle!.";
     playerScore = computerScore = 0;
-    resetGame();
+    resetGame(BATTLE);
   }
   console.log(playerScore, computerScore);
 }
 
-function resetGame() {
+function resetGame(message) {
   document.getElementById("message1").innerHTML = "";
-  // document.getElementById("message2").innerHTML = "";
   document.getElementById("playerScore").innerHTML = 0;
   document.getElementById("computerScore").innerHTML = 0;
+  if (message == null) {
+    document.getElementById("message2").innerHTML = "";
+  }
 }
