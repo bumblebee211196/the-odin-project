@@ -29,10 +29,10 @@ function game(player) {
   let result = round(player, computer);
   if (result === 1) {
     playerScore++;
-    message = `You won the round!. "${player}" defeats "${computer}"`;
+    message = `"${player}" defeats "${computer}". You won the round!.`;
   } else if (result === -1) {
     computerScore++;
-    message = `You lost the round!. "${computer}" defeats "${player}"`;
+    message = `"${computer}" defeats "${player}". You lost the round!.`;
   } else {
     message = `It's a tie.`;
   }
