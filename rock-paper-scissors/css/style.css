@@ -1,4 +1,6 @@
 body {
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,6 +51,7 @@ button:active {
 }
 
 .title {
+  flex: 1;
   font-size: 48px;
   font-weight: bold;
 }
@@ -61,16 +64,18 @@ button:active {
   display: flex;
   gap: 100px;
 
-  margin: 32px;
+  padding: 32px;
 }
 
 .message1, .message2 {
-  margin: 20px;
+  flex: 1;
+  padding: 20px;
   
   font-size: 24px;
 }
 
 .board {
+  flex: 1;
   display: flex;
   gap: 100px;
 
@@ -94,7 +99,7 @@ button:active {
 }
 
 .footer {
-  margin: 16px 0;
+  flex: 1;
 }
 
 .footer a {
