@@ -56,7 +56,17 @@ function resetGame(message) {
   document.getElementById("message1").innerHTML = "";
   document.getElementById("playerScore").innerHTML = 0;
   document.getElementById("computerScore").innerHTML = 0;
-  if (message == null) {
+  if (message === undefined) {
     document.getElementById("message2").innerHTML = "";
   }
 }
+
+const bulbasaur = document.querySelector(".grass");
+const charmander = document.querySelector(".fire");
+const squirtle = document.querySelector(".water");
+const battleAgain = document.querySelector(".battle-again");
+
+bulbasaur.addEventListener("click", () => game(BULBASAUR));
+charmander.addEventListener("click", () => game(CHARMANDER));
+squirtle.addEventListener("click", () => game(SQUIRTLE));
+battleAgain.addEventListener("click", () => resetGame());

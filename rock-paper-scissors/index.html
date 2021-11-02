@@ -4,16 +4,16 @@
         <meta charset="UTF-8">
         <title>Rock, Paper and Scissors</title>
         <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="scripts/game.js"></script>
+        <script type="text/javascript" src="scripts/game.js" defer></script>
     </head>
     <body>
         <img class="logo" src="images/pokemon_logo.svg" alt="pokemon_logo"></img>
         <p class="title">Welcome to the pokemon battle.</p>
         <p class="text">First to win 5 rounds wins the battle!.</p>
         <div class="cards">
-            <button class="grass" onclick="game(BULBASAUR)"><img src="images/grass.png" alt="bulbasaur"></button>
-            <button class="fire" onclick="game(CHARMANDER)"><img src="images/fire.png" alt="charmander"></button>
-            <button class="water" onclick="game(SQUIRTLE)"><img src="images/water.png" alt="squirtle"></button>
+            <button class="grass"><img src="images/grass.png" alt="bulbasaur"></button>
+            <button class="fire"><img src="images/fire.png" alt="charmander"></button>
+            <button class="water"><img src="images/water.png" alt="squirtle"></button>
         </div>
         <p id="message1" class="message1"></p>
         <p id="message2" class="message2"></p>
@@ -27,7 +27,7 @@
                 <p id="computerScore">0</p>
             </div>
         </div>
-        <button class="battle-again" type="button" class="" onclick="resetGame()">Battle Again</button>
+        <button class="battle-again">Battle Again</button>
         <div class="footer">
             Developed by <a href="https://github.com/bumblebee211196/the-odin-project/tree/main/rock-paper-scissors">Sathish Babu</a>
         </div>
