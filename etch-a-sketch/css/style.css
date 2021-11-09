@@ -1,0 +1,57 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  box-sizing: border-box;
+  background-color: aqua;
+}
+
+header {
+  margin: 50px;
+  font-size: 50px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  padding: 8px;
+  width: 96px;
+  border-radius: 8px;
+  background-color: rgb(230, 115, 48);
+  color: aliceblue;
+}
+
+.btn.clear {
+  flex: 1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.options {
+  width: 512px;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.grid {
+  background-color: white;
+  height: 512px;
+  width: 512px;
+  border: 12px solid black;
+  display: grid;
+}
+
+footer {
+  text-align: center;
+}
