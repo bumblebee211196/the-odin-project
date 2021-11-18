@@ -46,6 +46,16 @@ body {
   background-color: rgba(255, 0, 0, 0.8);
 }
 
+.calculator-grid > button.operation {
+  color: white;
+  background-color: rgba(187, 86, 27, 0.75);
+}
+
+.calculator-grid > button.operation:hover {
+  color: white;
+  background-color: rgba(187, 86, 27, 0.9);
+}
+
 .output {
   grid-column: 1 / -1;
   background-color: rgba(0, 0, 0, .75);
