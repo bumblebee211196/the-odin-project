@@ -123,3 +123,27 @@ deleteButton.addEventListener('click', () => {
   calculator.delete();
   calculator.updateDisplay();
 })
+
+window.addEventListener('keydown', (e) => {
+  console.log(e);
+  if(e.keyCode >= 49 && e.keyCode <= 57) {
+    calculator.appendNumber(e.key);
+    calculator.updateDisplay();
+  }
+  if([61, 173, 56, 191].includes(e.keyCode)) {
+    if (e.key === '/') {
+      calculator.chooseOperation('÷');
+    } else {
+      calculator.chooseOperation(e.key);
+    }
+    calculator.updateDisplay();
+  }
+  if(e.keyCode == 8) {
+    calculator.delete();
+    calculator.updateDisplay();
+  }
+  if(e.keyCode == 13) {
+    calculator.compute();
+    calculator.updateDisplay();
+  }
+});
