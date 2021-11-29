@@ -46,6 +46,7 @@ html, body {
   cursor: pointer;
   background-color: white;
   border-radius: 8px;
+  border: none;
 }
 
 .popup .add-book-form h2 {
