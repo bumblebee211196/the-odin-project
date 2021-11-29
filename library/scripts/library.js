@@ -18,6 +18,19 @@ function removeBookFromLibrary(index) {
   MY_LIBRARY.splice(index, 1);
 }
 
+function updateSummary() {
+  const totalBooks = document.querySelector('#total-books');
+  const booksRead = document.querySelector('#books-read');
+  const booksUnread = document.querySelector('#books-unread');
+
+  let totalNumberOfBooks = MY_LIBRARY.length;
+  let numberOfBooksRead = MY_LIBRARY.filter((book) => book.read).length;
+
+  totalBooks.innerHTML = totalNumberOfBooks;
+  booksRead.innerHTML = numberOfBooksRead;
+  booksUnread.innerHTML = totalNumberOfBooks - numberOfBooksRead;
+}
+
 function updateDisplay() {
   const main = document.querySelector('.main');
   main.innerHTML = MY_LIBRARY.map((book, index) => {
@@ -40,12 +53,15 @@ function updateDisplay() {
   
   readBookButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
-      const read = e.target.innerHTML.toLowerCase();
-      const bookRead = read === 'read' ? 'unread-btn' : 'read-btn';
-      const bookReadContent = read === 'read' ? 'Unread' : 'Read';
-      e.target.classList.remove(`${read}-btn`);
-      e.target.classList.add(bookRead);
+      const index = e.target.parentElement.parentElement.dataset['key'];
+      const book = MY_LIBRARY[index];
+      const prevBookRead = book.read ? 'read-btn' : 'unread-btn';
+      const bookRead = book.read ? 'unread-btn' : 'read-btn';
+      const bookReadContent = book.read ? 'Unread' : 'Read';
+      e.target.classList.replace(prevBookRead, bookRead);
       e.target.innerHTML = bookReadContent;
+      book.read = !book.read
+      updateSummary();
     })
   });
 
@@ -54,19 +70,11 @@ function updateDisplay() {
       const index = e.target.parentElement.parentElement.dataset['key'];
       removeBookFromLibrary(index);
       updateDisplay();
+      updateSummary();
     })
   });
-
-  const totalBooks = document.querySelector('#total-books');
-  const booksRead = document.querySelector('#books-read');
-  const booksUnread = document.querySelector('#books-unread');
-
-  let totalNumberOfBooks = MY_LIBRARY.length;
-  let numberOfBooksRead = MY_LIBRARY.filter((book) => book.read).length;
-
-  totalBooks.innerHTML = totalNumberOfBooks;
-  booksRead.innerHTML = numberOfBooksRead;
-  booksUnread.innerHTML = totalNumberOfBooks - numberOfBooksRead;
+  
+  updateSummary();
 }
 
 function activatePopupForm(popupForm) {
@@ -109,7 +117,9 @@ submitFormButton.addEventListener('click', () => {
   const read = document.querySelector('#read').checked;
   addBookToLibrary(title, author, pages, read);
   updateDisplay();
+  updateSummary();
   removePopupForm(popupForm);
 });
 
 updateDisplay();
+updateSummary();
