@@ -92,8 +92,20 @@ closeFormButton.addEventListener('click', () => {
 
 submitFormButton.addEventListener('click', () => {
   const title = document.querySelector('#title').value;
+  if (!title) {
+    alert('Title is required');
+    return;
+  }
   const author = document.querySelector('#author').value;
+  if (!author) {
+    alert('Author is required');
+    return;
+  }
   const pages = document.querySelector('#pages').value;
+  if (pages == 0) {
+    alert('The book must contain a minimum 1 page');
+    return;
+  }
   const read = document.querySelector('#read').checked;
   addBookToLibrary(title, author, pages, read);
   updateDisplay();
