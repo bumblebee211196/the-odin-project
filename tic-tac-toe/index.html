@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="scripts/game.js" defer></script>
+    </head>
+    <body>
+        <div class="popup form active">
+            <div class="form">
+                <div class="form-element">
+                    <label for="player1">Player 1</label>
+                    <input type="text" name="player1" id="player1" placeholder="Player1">
+                </div>
+                <div class="form-element">
+                    <label for="player2">Player 2</label>
+                    <input type="text" name="player2" id="player2" placeholder="Player1">
+                </div>
+                <div class="form-element">
+                    <button class="btn submit-form">Start</button>
+                </div>
+            </div>
+        </div>
+        <div class="popup winner">
+            <img class="close-popup" src="images/icon-close.png" alt="">
+            <p class="winner"></p>
+        </div>
+        <div class="container">
+            <div class="header">
+                <h1>Tic Tac Toe</h1>
+                <p>A fun game to enjoy with your friends 😈.</p>
+            </div>
+            <div class="main">
+                <div class="left-sidebar">
+                    <img src="images/icon-player.png" alt="player1">
+                    <p class="player player1">Player 1</p>
+                    <p class="player1 score">0</p>
+                </div>
+                <div class="content">
+                    <div class="board">
+                        <button data-x="0" data-y="0" class="btn tile"></button>
+                        <button data-x="0" data-y="1" class="btn tile"></button>
+                        <button data-x="0" data-y="2" class="btn tile"></button>
+                        <button data-x="1" data-y="0" class="btn tile"></button>
+                        <button data-x="1" data-y="1" class="btn tile"></button>
+                        <button data-x="1" data-y="2" class="btn tile"></button>
+                        <button data-x="2" data-y="0" class="btn tile"></button>
+                        <button data-x="2" data-y="1" class="btn tile"></button>
+                        <button data-x="2" data-y="2" class="btn tile"></button>
+                    </div>
+                    <p>(X makes the first move)</p>
+                    <div class="game-options">
+                        <button class="btn reset-game">Reset Board</button>
+                        <button class="btn restart-game">Restart Game</button>
+                        <button class="btn new-game">New Game</button>
+                    </div>
+                </div>
+                <div class="right-sidebar">
+                    <img src="images/icon-player.png" alt="player2">
+                    <p class="player player2">Player 2</p>
+                    <p class="player2 score">0</p>
+                </div>
+            </div>
+            <div class="footer">
+                <p>Developed by S Sathish Babu</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #95abca, #78a7c779);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  text-align: center;
+
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+
+  width: 500px;
+  transform: translate(-50%, -50%) scale(1.25);
+  background-color: rgb(152, 213, 248);
+}
+
+.popup.active {
+  display: block;
+}
+
+.close-popup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  height: 35px;
+}
+
+.popup .form .form-element {
+  margin: 15px 0;
+}
+
+.popup .form .form-element input {
+  width: 100%;
+  margin: 8px 0;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.popup .form .form-element .btn {
+  width: 100%;
+  padding: 4px;
+}
+
+.btn {
+  padding: 8px;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.tile {
+  height: 100px;
+  width: 100px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px gray;
+}
+
+.tile:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+.container {
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr auto;
+}
+
+/* Header starts */
+.header {
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header > h1 {
+  font-size: 72px;
+}
+/* Header ends */
+
+/* Main starts */
+.main {
+  padding: 100px 0;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Sidebar */
+.main .left-sidebar, .main .right-sidebar {
+  font-size: 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main .content .board {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 8px;
+}
+
+.main .content .game-options {
+  margin-top: 20px;
+  display: grid;
+  gap: 5px 0;
+}
+
+/* Main ends */
+
+/* Footer starts */
+.footer {
+  background-color: rgba(110, 191, 218, 0.363);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Footer ends */
