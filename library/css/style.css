@@ -29,7 +29,7 @@ html, body {
   transform: translate(-50%, -50%) scale(1.25);
   background-color: white;
   box-shadow: 8px 8px 4px rgb(128, 128, 128);
-  transition: top 600ms ease-in-out;
+  transition: top 400ms ease-in-out;
 }
 
 .popup.active {
@@ -190,14 +190,17 @@ html, body {
 }
 
 .button-group .read-btn {
+  cursor: pointer;
   background-color: rgba(0, 125, 0, 0.75);
 }
 
 .button-group .unread-btn {
+  cursor: pointer;
   background-color: rgba(250, 0, 0, 0.75);
 }
 
 .button-group .delete-btn {
+  cursor: pointer;
   background-color: rgba(250, 0, 0, 0.75);
 }
 
