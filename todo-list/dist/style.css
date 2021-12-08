@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
+  --priority-high: rgb(211, 75, 73);
+  --priority-medium: rgb(179, 139, 9);
+  --priority-low: rgb(61, 112, 37);
+  --content-bg-color: rgb(5, 8, 54);
+  --focussed-content-bg-color: rgb(13, 173, 139);
+  --unfocussed-content-bg-color: rgb(29, 104, 98);
+}
+
+#open-project-popup, #open-task-popup {
+  border: none;
+  outline: none;
+  background-color: var(--content-bg-color);
+}
+
+#project-popup, #task-popup {
+  display: flex;
+  justify-content: space-between;
+}
+
+#project-name {
+  width: 200px;
+}
+
+#task-name, #task-description {
+  width: 300px;
+}
+
+#task-priority {
+  width: 200px;
+}
+
+#input-group, #button-group {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#input-group {
+  gap: 1rem;
+}
+
+#button-group {
+  gap: 0.25rem;
+}
+
+/* Container starts */
+.container {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+/* Container ends */
+
+/* Navbar starts */
+.navbar {
+  color: white;
+  background: rgb(71, 43, 186);
+  background: linear-gradient(0deg, rgba(71, 43, 186, 1) 0%, rgba(44, 25, 121, 1) 100%);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home > img {
+  height: 10%;
+  width: 10%;
+}
+/* Navbar ends */
+
+/* Main starts */
+.main {
+  flex: 1;
+  overflow: hidden;
+  color: white;
+
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .main {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 800px) {
+  .main {
+    flex-direction: column;
+  }
+  .item.task {
+    flex-direction: column;
+  }
+}
+
+.main img {
+  cursor: pointer;
+  height: 80%;
+}
+/* Main ends */
+
+/* Sidebar and Content starts */
+.sidebar, .content {
+  padding: 1rem;
+  overflow: hidden;
+  background-color: var(--content-bg-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar {
+  min-width: 450px;
+}
+/* Sidebar and Content ends */
+
+.content {
+  flex: 1;
+}
+
+/* Title starts */
+.title {
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Title ends */
+
+/* Project and Task starts */
+.items.project, .items.task {
+  padding: 1rem;
+  overflow: scroll;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.item.project, .item.task {
+  padding: 0.5rem;
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: var(--unfocussed-content-bg-color)
+}
+
+.item.project {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item.project.clicked, .item.project.clicked button {
+  transform: translateX(10px);
+  background-color: var(--focussed-content-bg-color);
+}
+
+.item.project img {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+}
+
+.item.project button, .item.project input[type="text"], .item.task button, .item.task input[type="text"] {
+  padding: 0.35rem 0.25rem;
+  border-radius: 4px;
+}
+
+.item.task {
+  display: flex;
+  gap: 1rem;
+}
+
+.item.task img {
+ cursor: pointer;
+ width: 32px;
+ height: 32px;
+}
+
+.item.task > input[type="checkbox"] {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+.item.task > input[type="checkbox"]:checked + .item.content {
+  text-decoration: line-through;
+}
+
+.item.project:hover {
+  cursor: pointer;
+}
+/* Project and Task ends */
+
+.item.other {
+  padding: 0 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Item option starts */
+.item.options {
+  display: flex;
+  gap: 0.55rem;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50px);
+  transition: opacity 250ms ease-in-out,
+              transform 150ms ease-in-out;
+}
+
+.item.options .edit-project, .item.options .delete-project, .item.options .edit-task, .item.options .delete-task {
+  border: none;
+  /* padding: 0.05rem; */
+  outline: none;
+  background-color: var(--unfocussed-content-bg-color);
+}
+
+.item.project:hover > .item.options, .item.task:hover > .item.options {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0px);
+}
+
+.item.content {
+  flex: 1 0 auto;
+  padding: 0;
+  background-color: inherit;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.item.content > p {
+  font-size: 18px;
+}
+
+.item.content > .description {
+  font-size: 16px;
+}
+/* Item option ends */
+
+/* Footer starts */
+.footer {
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  background-color: rgb(71, 43, 186);
+}
+
+.footer a {
+  cursor: pointer;
+  color: wheat;
+  text-decoration: none;
+}
+/* Footer starts */
