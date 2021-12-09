@@ -10,7 +10,13 @@ class Project {
 }
 
 export default class ProjectList {
-  static projectListElement = document.querySelector('.items.project');
+  static _projectListElement = document.querySelector('.items.project');
+  static get projectListElement() {
+    return ProjectList._projectListElement;
+  }
+  static set projectListElement(value) {
+    ProjectList._projectListElement = value;
+  }
 
   static addProject(project) {
     const todo = TodoDS.getTodo();
