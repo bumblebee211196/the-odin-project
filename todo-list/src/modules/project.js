@@ -40,7 +40,7 @@ export default class ProjectList {
     cardElement.classList.add('item', 'project');
     cardElement.dataset.key = project.id;
 
-    const name = document.createElement('p');
+    const name = document.createElement('h3');
     name.textContent = project.name;
 
     const options = document.createElement('div');
@@ -70,7 +70,7 @@ export default class ProjectList {
       this.removeProject(projectId);
       TodoDS.setProjectId('');
       this.updateItemList();
-      TaskList.updateItemList();
+      TaskList.updateItemList(TodoDS.getProjectId());
     });
 
     options.appendChild(editButton);
@@ -94,7 +94,6 @@ export default class ProjectList {
         TodoDS.setProjectId(e.target.dataset.key);
         e.target.classList.add('clicked');
       }
-      // console.log(TodoDS.getProjectId());
       TaskList.updateItemList(TodoDS.getProjectId());
     });
 
@@ -116,7 +115,7 @@ export default class ProjectList {
       if (!name) { return }
       const project = new Project(name);
       this.addProject(project);
-      this.addToItemList(project, true);
+      this.addToItemList(project);
       this.closePopupForm();
     });
 
@@ -132,7 +131,7 @@ export default class ProjectList {
       if (!name) { return }
       const project = new Project(name);
       this.addProject(project);
-      this.addToItemList(project, true);
+      this.addToItemList(project);
       this.closePopupForm();
     });
 
@@ -213,9 +212,7 @@ export default class ProjectList {
     this.projectListElement.removeChild(popupElement);
   }
 
-  static addToItemList(project, focus=false) {
-    const cardElement = this.getItemCard(project);
-    if (focus) { cardElement.click(); }
+  static addToItemList(project) {
     this.projectListElement.appendChild(this.getItemCard(project));
   }
 
@@ -223,8 +220,7 @@ export default class ProjectList {
     this.projectListElement.textContent = '';
     const todo = TodoDS.getTodo()
     for (let projectId of Object.keys(todo)) {
-      const project = todo[projectId]['project'];
-      this.addToItemList(project);
+      this.addToItemList(todo[projectId]['project']);
     }
   }
 }

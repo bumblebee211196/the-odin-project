@@ -3,7 +3,13 @@ if (window.localStorage.getItem("todo") == null) {
 }
 
 export default class TodoDS {
-  static projectId = ''
+  static _projectId = '';
+  static get projectId() {
+    return TodoDS._projectId;
+  }
+  static set projectId(value) {
+    TodoDS._projectId = value;
+  }
   static todo = JSON.parse(window.localStorage.getItem('todo'));
   
   static getProjectId = () => {

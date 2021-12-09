@@ -28,6 +28,7 @@
 
 #task-name, #task-description {
   width: 300px;
+  overflow-y: scroll;
 }
 
 #task-priority {
@@ -90,13 +91,13 @@
   gap: 0.5rem;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1600px) {
   .main {
     flex-direction: row;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .main {
     flex-direction: column;
   }
@@ -241,8 +242,9 @@
 }
 
 .item.content {
-  flex: 1 0 auto;
+  widows: 80%;
   padding: 0;
+  overflow: hidden;
   background-color: inherit;
   
   display: flex;

@@ -1,35 +1,33 @@
-import ProjectList from "./project";
-import TaskList from "./task";
-import TodoDS from "./todo";
+import ProjectList from './project'
+import TaskList from './task'
+import TodoDS from './todo'
 
-const openProjectPopupButton = document.getElementById('open-project-popup');
-const openTaskPopupButton = document.getElementById('open-task-popup');
+const openProjectPopupButton = document.getElementById('open-project-popup')
+const openTaskPopupButton = document.getElementById('open-task-popup')
 
 export default class UI {
-  constructor() {}
-
-  static addProject() {
-    ProjectList.openPopupForm();
+  static addProject () {
+    ProjectList.openPopupForm()
   }
 
-  static addTask() {
-    TaskList.openPopupForm();
+  static addTask () {
+    TaskList.openPopupForm()
   }
-  
-  static update() {
-    ProjectList.updateItemList();
-    TaskList.updateItemList();
+
+  static update () {
+    ProjectList.updateItemList()
+    TaskList.updateItemList()
   }
 }
 
 openProjectPopupButton.addEventListener('click', () => {
-  UI.addProject();
-});
+  UI.addProject()
+})
 
 openTaskPopupButton.addEventListener('click', () => {
   if (!TodoDS.getProjectId()) {
-    alert('Select/Create a project to add a task.');
-    return;
+    alert('Select/Create a project to add a task.')
+    return
   }
-  UI.addTask();
-});
+  UI.addTask()
+})

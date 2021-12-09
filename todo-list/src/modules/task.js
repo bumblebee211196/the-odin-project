@@ -9,12 +9,18 @@ class Task {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.createdDate = format(new Date(), 'dd-MM-yyyy');
+    this.createdDate = format(new Date(), 'yyyy-MM-dd');
   }
 }
 
 export default class TaskList {
-  static taskListElement = document.querySelector('.items.task');
+  static _taskListElement = document.querySelector('.items.task');
+  static get taskListElement() {
+    return TaskList._taskListElement;
+  }
+  static set taskListElement(value) {
+    TaskList._taskListElement = value;
+  }
 
   static addTask(projectId, task) {
     const todo = TodoDS.getTodo();
@@ -22,9 +28,9 @@ export default class TaskList {
     TodoDS.updateTodo(todo);
   }
 
-  static removeTask(projectId, task) {
+  static removeTask(projectId, taskId) {
     const todo = TodoDS.getTodo();
-    delete todo[projectId]['tasks'][task.id];
+    delete todo[projectId]['tasks'][taskId];
     TodoDS.updateTodo(todo);
   }
 
@@ -53,7 +59,7 @@ export default class TaskList {
     
     const content = document.createElement('div');
     content.classList.add('item', 'content');
-    const title = document.createElement('p');
+    const title = document.createElement('h3');
     title.textContent = task.name;
     const description = document.createElement('p');
     description.classList.add('description');
@@ -98,8 +104,10 @@ export default class TaskList {
       event.stopPropagation();
       const parentDiv = e.target.parentElement.parentElement.parentElement;
       const taskId = parentDiv.dataset.key;
-      this.removeTask(projectId, taskId)
-      this.updateItemList();
+      console.log(taskId);
+      this.removeTask(TodoDS.getProjectId(), taskId);
+      console.log(TodoDS.getTodo()[TodoDS.getProjectId()]['tasks']);
+      this.updateItemList(TodoDS.getProjectId());
     });
 
     options.appendChild(editButton);
@@ -224,8 +232,9 @@ export default class TaskList {
 
     const inputElementDate = document.createElement('input');
     inputElementDate.type = 'date';
-    inputElementDate.id = 'task-date';
+    inputElementDate.id = 'task-due-date';
     inputElementDate.placeholder = 'Task Due Date';
+    inputElementDate.value = task.dueDate;
 
     const inputElementPriority = document.createElement('select');
     inputElementPriority.id = 'task-priority';
