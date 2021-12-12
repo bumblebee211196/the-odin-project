@@ -1,7 +1,56 @@
 const addBookButton = document.querySelector('.add-book-btn');
 const popupFormElement = document.querySelector('.popup');
+const submitForm = document.querySelector('.popup');
 const closeFormButton = document.querySelector('.popup .add-book-form .close-btn');
-const submitFormButton = document.querySelector('.popup .add-book-form .submit-btn');
+
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const pagesInput = document.getElementById('pages');
+
+const titleErrorMessage = document.querySelector('#title + .error-message');
+const authorErrorMessage = document.querySelector('#author + .error-message');
+const pagesErrorMessage = document.querySelector('#pages + .error-message');
+
+const removeError = (errorSelector) => {
+  errorSelector.textContent = ''
+  errorSelector.classList = 'error-message'
+}
+
+const showTitleError = () => {
+  if (titleInput.validity.valueMissing) {
+    titleErrorMessage.textContent = 'Please a enter a valid title.'
+    titleErrorMessage.classList = 'error-message active';
+  } else if (titleInput.validity.tooShort) {
+    titleErrorMessage.textContent = `Title should be at least ${ titleInput.minLength } characters.`;
+    titleErrorMessage.classList = 'error-message active';
+  } else if(titleInput.validity.typeMismatch) {
+    titleErrorMessage.textContent = 'Title needs to be a text.'
+    titleErrorMessage.classList = 'error-message active';
+  } 
+}
+
+const showAuthorError = () => {
+  if (authorInput.validity.valueMissing) {
+    authorErrorMessage.textContent = 'Please a enter a valid author name.'
+    authorErrorMessage.classList = 'error-message active';
+  } else if (authorInput.validity.tooShort) {
+    authorErrorMessage.textContent = `Author should be at least ${ authorInput.minLength } characters.`;
+    authorErrorMessage.classList = 'error-message active';
+  } else if(authorInput.validity.typeMismatch) {
+    authorErrorMessage.textContent = 'Author needs to be a text.'
+    authorErrorMessage.classList = 'error-message active';
+  }
+}
+
+const showPagesError = () => {
+  if (pagesInput.validity.rangeUnderflow) {
+    pagesErrorMessage.textContent = `The book should have atleast ${ pagesInput.min } number of pages.`
+    pagesErrorMessage.classList = 'error-message active';
+  } else if (pages.validity.typeMismatch) {
+    pagesErrorMessage.textContent = 'Pages needs to be a number.'
+    pagesErrorMessage.classList = 'error-message active';
+  }
+}
 
 class Book {
   constructor(title, author, pages, read=false) {
@@ -118,26 +167,51 @@ addBookButton.addEventListener('click', () => {
 
 closeFormButton.addEventListener('click', () => {
   FORM_POPUP.removePopupForm(popupFormElement);
+  removeError(titleErrorMessage);
+  removeError(authorErrorMessage);
+  removeError(pagesErrorMessage)
 });
 
-submitFormButton.addEventListener('click', () => {
-  const title = document.querySelector('#title').value;
-  if (!title) {
-    alert('Title is required');
+titleInput.addEventListener('input', () => {
+  if (titleInput.validity.valid) {
+    removeError(titleErrorMessage);
+  } else {
+    showTitleError();
+  } 
+});
+
+authorInput.addEventListener('input', () => {
+  if (authorInput.validity.valid) {
+    removeError(authorErrorMessage);
+  } else {
+    showAuthorError();
+  }
+});
+
+pagesInput.addEventListener('input', () => {
+  if (pagesInput.validity.valid) {
+    removeError(pagesErrorMessage);
+  } else {
+    showPagesError();
+  }
+});
+
+submitForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (!titleInput.validity.valid) {
+    showTitleError();
     return;
   }
-  const author = document.querySelector('#author').value;
-  if (!author) {
-    alert('Author is required');
+  if (!authorInput.validity.valid) {
+    showAuthorError();
     return;
   }
-  const pages = document.querySelector('#pages').value;
-  if (pages == 0) {
-    alert('The book must contain a minimum 1 page');
+  if (!pagesInput.validity.valid) {
+    showPagesError();
     return;
-  }
+   }
   const read = document.querySelector('#read').checked;
-  MY_LIBRARY.addBookToLibrary(title, author, pages, read);
+  MY_LIBRARY.addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value, read);
   UI_CONTROLLER.update();
   FORM_POPUP.removePopupForm(popupFormElement);
 });
