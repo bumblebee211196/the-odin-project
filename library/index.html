@@ -10,31 +10,34 @@
     </head>
     <body>
         <button class="add-book-btn"><img src="images/icons8-add-48.png"></button>
-        <div class="popup">
+        <form class="popup" novalidate>
             <div class="add-book-form">
                 <button class="close-btn"><img src="images/close-icon.png"></button>
                 <h2>Add Book</h2>
                 <div class="form-element">
                     <label for="title">Title</label>
-                    <input type="text" id="title" name="title" placeholder="Title" required>
+                    <input type="text" id="title" name="title" placeholder="Title" required minlength="4">
+                    <span class="error-message title" aria-live="polite"></span>
                 </div>
                 <div class="form-element">
                     <label for="author">Author</label>
-                    <input type="text" id="author" name="author" placeholder="Author" required>
+                    <input type="text" id="author" name="author" placeholder="Author" required minlength="4">
+                    <span class="error-message author" aria-live="polite"></span>
                 </div>
                 <div class="form-element">
                     <label for="pages">Pages</label>
-                    <input type="number" id="pages" name="pages" required>
+                    <input type="number" id="pages" name="pages" required min="10">
+                    <span class="error-message pages" aria-live="polite"></span>
                 </div>
                 <div class="form-element">
                     <input type="checkbox" id="read" name="read">
                     <label for="read">I have read the Book!</label>
                 </div>
                 <div class="form-element">
-                    <button class="submit-btn">Submit</button>
+                    <button type="submit" class="submit-btn">Submit</button>
                 </div>
             </div>
-        </div>
+        </form>
         <div class="container">
             <div class="header">
                 <h1>My Library</h1>
