@@ -1,12 +1,12 @@
 const API_KEY = 'b7998369e442f883b5724a6e7049e922';
 const URI = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&units=metric`;
 const MESSAGE = {
-  2: 'There\'s a thunderstorm. It\'s better to stay inside and enjoy some hot beverage.',
-  3: 'It\'s drizzling out there. If you are planning take an umbrella.',
-  5: 'It\'s raining out there. Take an umbrella else you will get drenched.',
-  6: 'It\'s snowing out there. Go out and enjoy and don\'t forget to wear some woolen.',
-  7: 'It\'s not safe to go out right now.',
-  8: 'It\'s clear out there. Great for a picnic.'
+  2: 'There\'s a thunderstorm. It\'s better to stay inside and enjoy some hot beverage. ☕',
+  3: 'It\'s drizzling out there. If you are planning to go outside take an umbrella!.🌂',
+  5: 'It\'s raining out there. Take an umbrella else you will get drenched. 🌂',
+  6: 'It\'s snowing out there. Time to build a snowman!. ☃',
+  7: 'It\'s not safe to go out right now. ❌',
+  8: 'It\'s clear out there. Great time for a picnic. 🏖'
 };
 const searchBar = document.querySelector('#search-bar');
 const submitButton = document.querySelector('#search-btn');
@@ -22,7 +22,7 @@ const fetchWeather = async (city) => {
     let message;
     console.log(data.weather[0].icon.toString());
     if (data.weather[0].icon.toString().endsWith('n')) {
-      message = 'Have a dreamy night!';
+      message = 'Have a dreamy night! 😴';
     } else {
       message = MESSAGE[data.weather[0].id.toString()[0]];
     }
