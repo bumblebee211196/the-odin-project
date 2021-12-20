@@ -72,6 +72,8 @@ body {
 }
 
 .content {
+  opacity: 0;
+  pointer-events: none;
   position: relative;
   border-radius: 20px;
   width: 80%;
@@ -84,7 +86,7 @@ body {
 }
 
 .temp-card {
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .normal {
@@ -113,7 +115,7 @@ body {
 }
 
 .message {
-  margin: 1rem auto 0;
+  margin: 1.5rem auto 0;
   padding: 1rem;
   font-size: 1.5rem;
 }

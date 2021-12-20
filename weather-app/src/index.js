@@ -83,6 +83,8 @@ const handleEvent = async (e) => {
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
+  content.style.opacity = 1;
+  content.style.pointerEvents = 'auto';
   addLoader();
   handleEvent(e);
 });
