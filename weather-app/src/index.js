@@ -33,7 +33,7 @@ const fetchWeather = async (city) => {
       tempMax: data.main.temp_max,
       tempMin: data.main.temp_min,
       humidity: data.main.humidity,
-      pressure: data.main.pressure,
+      windSpeed: data.wind.speed,
       icon: data.weather[0].icon,
       message
     });
@@ -65,12 +65,12 @@ const handleEvent = async (e) => {
         <a class="city-name" href="https://www.google.com/maps/search/?api=1&query=${data.longitude},${data.latitude}">${city}</a>
     </div>
     <div class="info-card">
-        <p>Lowest - ${data.tempMin}&#8451;</p>
-        <p>Highest - ${data.tempMax}&#8451;</sup></p>
+        <p>Lowest: ${data.tempMin}&#8451;</p>
+        <p>Highest: ${data.tempMax}&#8451;</sup></p>
     </div>
     <div class="info-card">
-        <p>Humidity - ${data.humidity}</p>
-        <p>Pressure - ${data.pressure}</sup></p>
+        <p>Humidity: ${data.humidity}%</p>
+        <p>Wind Speed: ${data.windSpeed}km/h</sup></p>
     </div>
     <div class="message">
         <p>${data.message}</p>
