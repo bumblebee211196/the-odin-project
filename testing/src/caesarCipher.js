@@ -1,34 +1,3 @@
-const capitalize = (str) => {
-  if (str.length === 0) { return ''; }
-  const strLower = str.toLowerCase();
-  return `${strLower[0].toUpperCase()}${strLower.slice(1)}`;
-};
-
-const reverseString = (str) => {
-  if (str.length === 0) { return ''; }
-  return str.split('').reverse().join('');
-};
-
-const Calculator = (() => {
-  const add = (x, y) => { return x + y; };
-  const subtract = (x, y) => { return x - y; };
-  const multiply = (x, y) => {
-    if (x === 0 || y === 0) { return 0; }
-    return x * y;
-  };
-  const divide = (x, y) => {
-    if (x === 0) { return 0; }
-    if (y === 0) { throw new Error('Cannot divide by zero.'); }
-    return x / y;
-  };
-  return {
-    add,
-    subtract,
-    multiply,
-    divide
-  };
-})();
-
 const charToAscii = (char) => {
   const charToNumMapper = {
     'a': 0,
@@ -119,29 +88,4 @@ const caesarCipher = (message, shifts) => {
   return result.join('');
 };
 
-const arrayUtils = (() => {
-  const average = (array) => {
-    return array.reduce((res, value) => res + value, 0) / array.length;
-  };
-
-  const min = (array) => {
-    return array.reduce((res, value) => res < value ? res : value, Infinity);
-  };
-
-  const max = (array) => {
-    return array.reduce((res, value) => res > value ? res : value, -Infinity);
-  };
-
-  return { average, min, max };
-})();
-
-const analyzeArray = (array) => {
-  return {
-    average: arrayUtils.average(array),
-    min: arrayUtils.min(array),
-    max: arrayUtils.max(array),
-    length: array.length
-  };
-};
-
-export { capitalize, reverseString, Calculator, caesarCipher, analyzeArray };
+export default caesarCipher;
